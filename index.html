@@ -1,0 +1,75 @@
+<!DOCTYPE
+<html lang="es">
+    <head>
+
+        <link href="style.css" rel="stylesheet">
+        <title>Globo</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+      <div id="app">
+        
+        
+
+        <img class = "imagen-1"src="https://i.imgur.com/Qx8uR89.png">
+        
+        <br>
+
+        <div>
+            <input id="IngresarUsuario" type="text" placeholder="Ingrese su usuario..." v-model="usuario">
+        </div>
+
+        <div id="informacion-personal">
+        <img  class = "imagen-2" src="https://i.imgur.com/99qgQJy.jpeg" alt="Foto de perfil: Jane Doe">
+        <button id="btnSeguir" @click="seguir">{{ boton }}</button>
+          <div id="informacion">
+            
+            <h1 class="f1">Jane Doe</h1>
+                <h3 class="f2">Email: <span class="f3">jane_doe@email.com</span></h3>
+                <h3 class="f2">Fecha de nacimiento: <span class="f3">01/05/1996</span></h3>
+                <h3 class="f2">Teléfono: <span class="f3">918-936-9585</span></h3>
+                <h3 class="f2">Ciudad: <span class="f3">Tokyo, Japón</span></h3>
+                <h3 class="f3">Trabajando en <span class="f2">Lawn N</span></h3>
+          </div>
+          </div>
+        
+
+        <br>
+        <br>
+
+        <div id="publicacion">
+          <p><em>Publicado hace una semana</em></p>
+          <img  class= "imagen-3" src = "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dG9raW8lMkMlMjBqYXAlQzMlQjNufGVufDB8fDB8fA%3D%3D&w=1000&q=80">
+
+         <br>
+
+          <button id="btnMegusta" @click="like">Me gusta</button>{{numero}}
+
+          <p><h4>Comentarios</h4></p>
+          <h3 class="f2">Juan Perez <span class="f3">¡Wow, esa foto de Tokio es impresionante!</span></h3>
+          <h3 class="f2">Kathleen J Rennie <span class="f3">¡Esa foto de Tokio es simplemente espectacular! Me trae tantos recuerdos.</span></h3>
+            
+              
+            
+            
+            <h3 class="f2" v-for="(comentario, index) in comentarios" :key="index">{{ comentario }} <button id= "btnEliminarComentario" @click="eliminarComentario(index)">Eliminar</button></h3>
+            <form @submit.prevent="agregarComentario">
+            <div id="SeccionComentarios"></div>
+            <input id="Comentarios" type="text" placeholder="Dejá tu comentario..." v-model="mensaje">
+          <button id="btnComentar"type ="submit">Comentar</button></form>
+          <h3>{{ error }}</h3>
+        </div> 
+      </div>
+        <br>
+
+        <div id="sobre-mi">
+          <p><h4>Sobre mí: </h4></p>
+            Hola! Soy Jane y actualmente vivo en Japón, pero originria de Argentina. Soy fotógrafa y me encanta capturar paisajes urbanos, explorando el contraste entre la arquitectura moderna y las tradiciones centenarias que conviven en la gran metrópolis de Tokio, en la que encuentro inspiración en cada rincón.
+        </div>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
